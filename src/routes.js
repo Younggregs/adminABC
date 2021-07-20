@@ -9,14 +9,6 @@ import loadable from '@loadable/component'
 import Loading from './components/Loading';
 
 
-import Fence from './screens/auth/Fence'
-import Landing from './screens/auth/Landing';
-import Register from './screens/auth/Register';
-import Login from './screens/auth/Login';
-import UpdateProfile from './screens/admin/UpdateProfile';
-import Logout from './screens/auth/Logout';
-import Dashboard from './screens/admin/Dashboard'
-
 // Non-authentication pages begins here
 // const Dashboard = loadable(() => import('./screens/pages/Dashboard'), {
 //     fallback: Loading,
@@ -44,28 +36,28 @@ const FAQ = loadable(() => import('./screens/pages/FAQ'), {
 })
 
 
-// // Authentication pages begins here
-// const Fence = loadable(() => import('./screens/auth/Fence'), {
-//     fallback: Loading,
-// })
-// const Landing = loadable(() => import('./screens/auth/Landing'), {
-//     fallback: Loading,
-// })
-// const Register = loadable(() => import('./screens/auth/Register'), {
-//     fallback: Loading,
-// })
-// const Login = loadable(() => import('./screens/auth/Login'), {
-//     fallback: Loading,
-// })
-// const UpdateProfile = loadable(() => import('./screens/admin/UpdateProfile'), {
-//     fallback: Loading,
-// })
-// const Logout = loadable(() => import('./screens/auth/Logout'), {
-//     fallback: Loading,
-// })
-// const Dashboard = loadable(() => import('./screens/admin/Dashboard'), {
-//     fallback: Loading,
-// })
+// Authentication pages begins here
+const Fence = loadable(() => import('./screens/auth/Fence'), {
+    fallback: Loading,
+})
+const Landing = loadable(() => import('./screens/auth/Landing'), {
+    fallback: Loading,
+})
+const Register = loadable(() => import('./screens/auth/Register'), {
+    fallback: Loading,
+})
+const Login = loadable(() => import('./screens/auth/Login'), {
+    fallback: Loading,
+})
+const UpdateProfile = loadable(() => import('./screens/admin/UpdateProfile'), {
+    fallback: Loading,
+})
+const Logout = loadable(() => import('./screens/auth/Logout'), {
+    fallback: Loading,
+})
+const Dashboard = loadable(() => import('./screens/admin/Dashboard'), {
+    fallback: Loading,
+})
 const Location = loadable(() => import('./screens/admin/Location'), {
     fallback: Loading,
 })
