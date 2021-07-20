@@ -1,0 +1,262 @@
+@font-face {
+  font-family: "Gilroy";
+  src: local("Gilroy"),
+    url("../../src/fonts//Gilroy-Medium.ttf") format("truetype");
+    font-weight: normal;
+}
+
+body {
+  background: #FFFFF9;
+  font-family: 'Gilroy', sans-serif;
+  /*background-image: url('../assets/imgs/bg.jpg');
+  background-size: cover;
+  */
+}
+
+.home-profile {
+    /* width: 45%; */
+    margin: 14rem auto 0;
+}
+.dash-profile {
+  margin: 14rem auto 0;
+}
+
+.profile-content {
+    max-width: 40%;
+    margin: auto;
+}
+
+
+
+/* ---------------------------------------------------------- */
+                /*  Create Page begins here */
+/* ---------------------------------------------------------- */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    border: 1.72958px solid #00AEFF;
+    border-radius: 8.64789px;
+    justify-content: center;
+    padding: 0 1rem .5rem;
+}
+.header .editable {
+    font-weight: 500;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #333333;
+    padding: 10px 1rem 0;
+    align-self: center;
+    border: 0;
+    background: transparent;
+}
+.header .editable, input:focus {
+  outline: none;
+}
+
+.subheader {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.subheader .sub-editable {
+    font-weight: normal;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+    color: #333333;
+    border: 0;
+    width: 100%;
+    /* height: 50px; */
+    max-width: 330px;
+    background: transparent;
+}
+.subheader p {
+    font-weight: normal;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #333333;
+    margin-bottom: 5px;
+}
+.subheader img {
+    width: 27px;
+    height: 27px;
+    margin-right: 5px;
+    border-radius: 100%;
+}
+ .headericons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.reference {
+    position: relative;
+  }
+  .popout-menu {
+    position: absolute;
+    visibility: hidden;
+    right: 0;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1;
+  }
+  .popout-menu p {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    color: #121E23;
+    white-space: nowrap;
+    margin-bottom: 12px;
+  }
+  .popout-menu p:nth-last-of-type(1) {
+    color: #EB5757;
+    margin-bottom: 0;
+  }
+  .popout-menu svg {
+    margin-right: 9px;
+    vertical-align: bottom;
+  }
+  .reference:focus {
+      outline: none;
+  }
+  .reference:hover > .popout-menu,
+  .reference:focus > .popout-menu,
+  .reference:focus-within > .popout-menu {
+    visibility: visible;
+  }
+  .icons-edit svg {
+      margin-right: 1rem;
+      cursor: pointer;
+  }
+/* ---------------------------------------------------------- */
+                /*  Create Page ends here */
+/* ---------------------------------------------------------- */
+
+/* ---------------------------------------------------------- */
+                /*  Dashboard Page begins here */
+/* ---------------------------------------------------------- */
+
+.create-new {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  width: 400px;
+  border: 1px solid #00AEFF;
+  margin-top: 0px;
+}
+
+.create-new p {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 26px;
+  text-align: center;
+  letter-spacing: 0.171254px;
+  color: #333333;
+  margin: 1rem 0 0;
+}
+
+.new-location {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  align-items: center;
+  border-radius: 10px;
+  padding: 4rem 2rem;
+  margin-top: 0px;
+}
+
+.new-location p {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 26px;
+  text-align: center;
+  letter-spacing: 0.171254px;
+  color: #333333;
+  margin: 1rem 0 0;
+}
+
+
+
+
+.message-container {
+  display: flex;
+  position: fixed;
+  bottom: 0px;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  background:  #fff;
+  box-shadow: 0px 0px 17.1254px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.message-container p {
+  font-size: 15px;
+  line-height: 26px;
+  text-align: center;
+  letter-spacing: 0.171254px;
+  color: #333333;
+  margin: 1rem 0 0;
+}
+
+.message-box{
+  border-radius: 5px;
+  border: 0px;
+  min-width: 100px;
+  height: 50px;
+}
+
+.search-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.message-text{
+  font-size: 15px;
+  font-weight: bold;
+  margin: 5px;
+}
+/* ---------------------------------------------------------- */
+                /*  Dashboard Page ends here */
+/* ---------------------------------------------------------- */
+
+
+/* --------------------------------- */
+ /*  Mobile view begins here */
+ /* ................................. */
+
+
+ @media only screen and (max-width: 991px) {
+   .header .editable {
+    text-align: left;
+    width: 100%;
+    padding: 10px 0 0;
+   }
+  .profile-content {
+    max-width: 100%;
+  }
+  .home-profile {
+    margin: 19rem auto 0;
+  }
+  .dash-profile {
+    margin: 12rem auto 0;
+  }
+}

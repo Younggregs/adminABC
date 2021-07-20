@@ -1,0 +1,739 @@
+@font-face {
+    font-family: "Gilroy";
+    src: local("Gilroy"),
+      url("../../src/fonts//Gilroy-Medium.ttf") format("truetype");
+      font-weight: normal;
+}
+
+body {
+    background: #FFFFF9;
+    font-family: 'Gilroy', sans-serif;
+}
+
+.main-button {
+    background: #228B22;
+    border-radius: 5px;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 36px;
+    color: #FFFFFF;
+    border: 0;
+    height: 55px;
+    width: 100%;
+}
+.main-button:hover {
+    background: #00ff00;
+    transition: .3s ease-in-out;
+}
+.transparent-button {
+    background: transparent;
+    border-radius: 5px;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 36px;
+    color: #7D83FF;
+    border: 1px solid #7D83FF;
+    height: 55px;
+    width: 100%;
+}
+.secondary-button {
+    background: #FD7000;
+    border-radius: 5px;
+    font-weight: normal;
+    font-size: 16.8312px;
+    line-height: 35px;
+    color: #FFFFFF;
+    border: 0;
+    height: 45px;
+    width: 100%;
+}
+.tertiary-button {
+    background: #ffff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 35px;
+    color: #7D83FF;
+    border: 0;
+    height: 45px;
+    width: 100%;
+}
+.instagram-button {
+    background: linear-gradient(160.78deg, #2B4AF4 7.1%, #C928DD 44.29%, #F61372 97.6%);
+    border-radius: 5px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #fff;
+    border: 0;
+    height: 45px;
+    width: 100%;
+    margin-top: 1rem;
+}
+.google-button {
+    background: transparent;
+    border-radius: 5px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000;
+    border: 1px solid #000;
+    height: 45px;
+    width: 100%;
+    margin-top: 1rem;
+}
+.auth-btn {
+    position: absolute;
+    bottom: 8px;
+    left: 6rem;
+}
+.main-button, 
+.transparent-button,
+.secondary-button
+.tertiary-button
+.instagram-button
+.google-button:focus {
+    outline: none;
+}
+/* profile details begins here */
+.landing-page-content .landing-profile {
+    max-width: 53%;
+    margin: 2rem auto 0;
+}
+.landing-profile .social-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px auto;
+    max-width: 40%;
+}
+.landing-profile .social-icons svg {
+    cursor: pointer;
+}
+.landing-profile p {
+    font-weight: normal;
+    font-size: 17.8694px;
+    line-height: 29px;
+    color: #333333;
+    opacity: 0.8;
+    margin: 0;
+    text-align: left;
+}
+
+.landing-profile img {
+    margin: 20px 0 10px;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.landing-profile .profile-title {
+    font-size: 15.3167px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #333333;
+    opacity: 0.5;
+}
+/* profile details ends here */
+/*  follow section begins here*/
+    .follow-container {
+        display: flex;
+        align-items: center;
+        background: #FFFFFF;
+        border: 1.20223px solid #D3D3D3;
+        border-radius: 8px;
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+    .follow-container .follow-btn {
+        max-width: 100px;
+    }
+    .follow-container .follow-img {
+        width: 110px;
+        height: 110px;
+        margin-right: 1rem;
+    }
+    .follow-container .follow-img .mobile {
+        max-width: 60%;
+    }
+    .follow-container .follow-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        margin: 0;
+    }
+    .follow-container div h3 {
+        font-weight: bold;
+        font-size: 16.8312px;
+        line-height: 18px;
+        color: #333333;
+        text-align: left;
+        margin: 0;
+    }
+    .follow-container div p {
+        font-weight: normal;
+        font-size: 14.4267px;
+        line-height: 19px;
+        color: #333333;
+        margin: 6px 0;
+        max-width: 255px;
+        text-align: left;
+    }
+/*  follow section ends here*/
+
+/* Testimonial section begins here */
+.testimonial-container {
+    margin: 3rem 0;
+}
+.testimonial-container .carousel button:nth-of-type(1) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: transparent;
+    border: 0;
+}
+.testimonial-container .carousel button:nth-of-type(2) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: transparent;
+    border: 0;
+}
+.testimonial-container .carousel button:focus {
+    outline: none;
+}
+.testimonial-container 
+.carousel 
+.inner-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    max-width: 40%;
+    text-align: center;
+    margin: auto;
+}
+.testimonial-container 
+.carousel .inner-content h4 {
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 54px;
+    text-align: center;
+    letter-spacing: -0.4625px;
+    color: #333333;
+    opacity: 0.7;
+}
+.testimonial-container 
+.carousel .inner-content p {
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 54px;
+    text-align: center;
+    letter-spacing: -0.4625px;
+    color: #333333;
+}
+
+.landing-profile p {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: left;
+    color: #5B5B5B;
+}
+
+.copy-clipboard {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.for-copy {
+    display: flex;
+    position: relative;
+    margin: 15px 0;
+}
+.for-copy input {
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    height: 50px;
+    border-radius: 7px;
+    min-width: 300px;
+}
+
+.for-copy input::placeholder {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #828282;
+    text-indent: 1rem;
+}
+
+.for-copy button {
+    background: #7D83FF;
+    border-radius: 0px 6.97977px 6.97977px 0px;
+    position: absolute;
+    right: 0;
+    width: 70px;
+    height: 100%;
+    border: 0;
+}
+.for-copy button:hover {
+    background: #595ecd;
+    transition: .3s ease-in-out;
+}
+.for-copy input,button:focus {
+    outline: none;
+}
+.for-copy .copied {
+    position: absolute;
+    bottom: -20px;
+    left: 20%;
+}
+
+.landing-vid {
+    margin-top: 1rem;
+    height: 240px;
+}
+iframe {
+    border-radius: 8px;
+}
+
+/* File upload beginns here */
+
+.upload-img {
+    position: absolute;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+.upload-img p {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #00AEFF;
+    margin-bottom: 0;
+}
+.for-border {
+    border: 1.73521px dashed #D3D3D3;
+    padding: 1rem;
+    margin-top: 30px;
+    border-radius: 5px;
+}
+.img-container {
+    background: rgba(226, 226, 226, 0.5);
+    /* opacity: 0.3; */
+    border: 1.73521px dashed #D3D3D3;
+    border-radius: 8.67606px;
+    height: 260px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.for-image {
+    position: relative;
+}
+
+.for-image input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    cursor: pointer;
+}
+
+.for-image img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+a img, a:link img, a:visited img {
+    border: 0;
+    }
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+    border: 0;
+  }
+
+/* File upload ends here */
+
+.port-section {
+    position: relative;
+}
+
+.port-link .port-editable {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 15.3167px;
+    line-height: 35px;
+    color: #7D83FF;
+    opacity: 0.7;
+    width: 100%;
+    background: #FFFFFF;
+    border: 1.19832px solid #D3D3D3;
+    border-radius: 5.99161px;
+    padding: 10px 20px;
+}
+.port-link a:hover {
+    text-decoration: none;
+}
+
+.port-link .thunder {
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+    top: 31%;
+}
+
+.youtube {
+    height: 250px;
+}
+.player {
+    border: 1.20223px solid #D3D3D3;
+    border-radius: 8px;
+    height: auto;
+    z-index: -1;
+}
+
+.btn-modal {
+    background: transparent;
+    color: rgba(1, 1, 1, 0.2);
+    font-weight: bold;
+    border: 0;
+}
+
+/* Modal for blocks begins here */
+
+.block-content {
+    padding: 10px 20px;
+}
+.block-content .block-content-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 430px;
+}
+.block-content .col-md-6 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 33px;
+}
+.block-content .col-md-6 img {
+    width: 69px;
+    height: 69px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+.block-content h3 {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 29px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    color: rgba(51, 51, 51, 0.7);
+}
+.block-content p {
+    font-weight: normal;
+    font-size: 16.7951px;
+    line-height: 22px;
+    display: inline-grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #333333;
+    margin: 0;
+}
+
+.Modal {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    border: 0;
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background: #FFFFFB;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+}
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Modal for block ends here */
+
+  .progress-details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .progress-details p {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: rgba(51, 51, 51, 0.7);
+    margin-bottom: .5rem;
+  }
+
+
+  /* ---------------------------------------------------------- */
+                /*  User Profile begins here */
+/* ---------------------------------------------------------- */
+
+.user-profile-section {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 17.1254px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.user-profile-section h1 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: left;
+    letter-spacing: 0.171254px;
+    color: #333333;
+    margin-bottom: 0;
+}
+
+.user-profile-section p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.171254px;
+    text-align: left;
+    color: rgba(51, 51, 51, 0.7);
+    margin: 1rem 0;
+}
+
+.user-profile-section .image {
+    width: 100px;
+    height: 87px;
+    border-radius: 10px;
+    border: 1px solid #D3D3D3;
+}
+
+.user-profile-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.user-profile-section .rotate {
+    transform: rotate(90deg);
+}
+
+.custom-input label {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 29px;
+    letter-spacing: 0.671077px;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.custom-input input {
+    width: 100%;
+    border-bottom: 0.93921px solid rgba(51, 51, 51, 0.2);
+    border-top: 0;
+    height: 50px;
+    background: transparent;
+    border-right: 0;
+    border-left: 0;
+    margin-bottom: 2rem;
+}
+.custom-input input:focus {
+    border-bottom: 0.93921px solid #7D83FF;
+    transition: .3s ease-in-out;
+
+}
+.custom-input input::placeholder {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.751368px;
+    color: #333333;
+    opacity: 0.6;
+}
+.custom-input input:focus {
+    outline: none;
+}
+.social-modal .socials {
+    width: 26%;
+    text-align: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.social-modal img {
+    width: 45px;
+    height: 45px;
+}
+
+/* ---------------------------------------------------------- */
+                /*  User Profile ends here */
+/* ---------------------------------------------------------- */
+
+
+/* --------------------------------- */
+ /*  Mobile view begins here */
+ /* ................................. */
+
+
+ @media only screen and (max-width: 991px) {
+    .testimonial-container 
+    .carousel .inner-content h4 {
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0;
+    }
+    .testimonial-container 
+    .carousel .inner-content p {
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0;
+    }
+    .testimonial-container 
+    .carousel 
+    .inner-content {
+        max-width: 63%;
+    }
+    .landing-page-content {
+        padding: 0;
+        box-shadow: none;
+    }
+    .landing-page-content .landing-profile {
+        max-width: 100%;
+        margin: 0;
+    }
+    .auth-btn {
+        left: 2rem;
+    }
+    .landing-profile img {
+        object-fit: cover;
+        height: 200px;
+    }
+    /* .follow-container .mobile {
+        max-width: 150px;
+    } */
+    .user-profile-section h1 {
+        font-size: 20px;
+    }
+    .user-profile-section p {
+        font-size: 12px;
+        line-height: 19px;
+    }
+    .custom-input label {
+        font-size: 18px;
+    }
+    .follow-container .follow-img {
+        width: 75px;
+        height: 75px;
+    }
+    .follow-container div h3 {
+        font-size: 14px;
+        line-height: 19px;
+        letter-spacing: 0px;
+        text-align: left;
+    }
+    .follow-container div p {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0px;
+        text-align: left;
+    }
+    .main-button {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: center;
+
+    }
+    .user-profile-section {
+        padding: 1rem;
+    }
+    .user-profile-section .image {
+        width: 70px;
+        height: 60px;
+    }
+    .block-content .col-md-6 {
+        max-width: 50%;
+    }
+    .Modal {
+        top: 78%;
+        border-radius: 20px 20px 0 0;
+        height: 100%;
+        max-height: 420px;
+    }
+    .block-content .col-md-6 img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        margin-bottom: 0;
+    }
+    .block-content p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .block-content h3 {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 1rem;
+    }
+    .btn-modal {
+        font-size: 14px;
+    }
+    .social-modal img {
+        width: 35px;
+        height: 35px;
+    }
+    .social-modal .socials p {
+        font-size: 12px;
+    }
+    .for-image img {
+        height: 220px;
+    }
+    .img-container {
+        height: 220px;
+    }
+    .follow-container .mobile {
+        max-width: 60%;
+    }
+ }

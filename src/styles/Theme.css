@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "Gilroy";
+    src: local("Gilroy"),
+      url("../../src/fonts//Gilroy-Medium.ttf") format("truetype");
+      font-weight: normal;
+}
+  
+body {
+    background: #FFFFF9;
+    font-family: 'Gilroy', sans-serif;
+    /*background-image: url('../assets/imgs/bg2.jpg');
+    background-size: cover;
+    */
+}
+
+.input {
+    border-radius: 5px;
+    border: 0px;
+    min-width: 100px;
+    height: 50px;
+}
