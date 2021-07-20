@@ -59,8 +59,8 @@ const DELETE_IMAGE_URL = `${API_ROOT_URL}/delete_image/`;
 const MISS_URL = `${API_ROOT_URL}/record_miss/`;
 const DELETE_MISS_URL = `${API_ROOT_URL}/delete_miss/`;
 
-const IMG_PATH_URL = 'http://159.65.201.173/media/';
-const ROOT_PATH_URL = 'http://obuntu.community';
+const IMG_PATH_URL = 'http://159.65.201.173:8000/media/';
+const ROOT_PATH_URL = 'http://apc-portal.herokuapp.com/';
 
 /*
     Other routes

@@ -101,7 +101,7 @@ export default function Login() {
 
             <div>
                 {success ? (
-                    <Redirect to={'/user'} />
+                    <Redirect to={'/dashboard'} />
                 ) : (
                 <div />
                 )}
