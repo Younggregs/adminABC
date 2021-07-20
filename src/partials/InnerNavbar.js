@@ -37,7 +37,7 @@ const InnerNavbar = (props) => {
                             <div className="nav-links link-inner">
                                 <div className="inner-header">
                                     <ul>
-                                        {superUser && (
+                                        {/* {superUser && (
                                             <li className="col-md-4">
                                             <Link 
                                                 className={props.admin ? ("active") : ("")} 
@@ -47,17 +47,17 @@ const InnerNavbar = (props) => {
                                                 Admins
                                             </Link>
                                         </li>
-                                        )}
+                                        )} */}
                                         <li className="col-md-4">
                                             <Link 
                                                 className={props.user ? ("active") : ("")} 
                                                 to='/user'
                                                 style={{textDecoration: 'none'}}
                                             >
-                                                Users
+                                                Members
                                             </Link>
                                         </li>
-                                        <li className="col-md-4">
+                                        {/* <li className="col-md-4">
                                             <Link 
                                                 className={props.location ? ("active") : ("")} 
                                                 to='/location'
@@ -65,7 +65,7 @@ const InnerNavbar = (props) => {
                                             >
                                                 Location
                                             </Link>
-                                        </li>
+                                        </li> */}
                                     </ul>
                                 </div>
                                 <ul>

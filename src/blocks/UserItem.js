@@ -297,7 +297,7 @@ return (
             <Grid className={classes.links}>
             <Grid container direction="column">
                     <p className={classes.linkText}>Name: {props.item.name}</p>
-                    <p className={classes.linkText}>Phone: {props.item.phone}</p>
+                    <p className={classes.linkText}>Reg: {props.item.registrationNumber}</p>
                     <p className={classes.linkText}>LGA: {props.item.lga}</p>
             </Grid>
             {/*
