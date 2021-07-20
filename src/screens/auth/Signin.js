@@ -92,7 +92,7 @@ export default function Signin() {
 
             <div>
                 {success ? (
-                    <Redirect to={'/admin'} />
+                    <Redirect to={'/user'} />
                 ) : (
                 <div />
                 )}
