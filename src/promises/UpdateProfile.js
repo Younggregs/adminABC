@@ -7,19 +7,19 @@ async function updateProfile(image){
     
     const auth = localStorage.getItem('auth') 
     try {
-          const res = await fetch(UPDATE_URL, {
-          method: 'POST',
-          body : formData,
-          headers : {
-            'Authorization' : 'Token ' + auth,
-            },
-          })
-          const message = await res.json();
-          return message
-  
-        } catch (e) {
-          console.log(e);
-        }
+        const res = await fetch(UPDATE_URL, {
+        method: 'POST',
+        body : formData,
+        headers : {
+          'Authorization' : 'Token ' + auth,
+          },
+        })
+        const message = await res.json();
+        return message
+
+      } catch (e) {
+        console.log(e);
+      }
 
     return false
 }

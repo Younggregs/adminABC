@@ -16,6 +16,10 @@ const SIGNUP_URL = `${API_ROOT_URL}/signup/`;
 const UPDATE_URL = `${API_ROOT_URL}/update/`;
 const SUPER_USER_URL = `${API_ROOT_URL}/superuser/`
 
+const LGA_FILTER_URL = `${API_ROOT_URL}/filterbylga/`;
+const WARD_FILTER_URL = `${API_ROOT_URL}/filterbyward/`;
+const POLL_FILTER_URL = `${API_ROOT_URL}/filterbypoll/`;
+
 const GET_NAME_URL = `${API_ROOT_URL}/guide/`;
 
 const USERDATA_URL = `${API_ROOT_URL}/userdata/`;
@@ -73,6 +77,9 @@ export {
     UPDATE_URL,
     SUPER_USER_URL,
     LOCATION_URL,
+    LGA_FILTER_URL,
+    WARD_FILTER_URL,
+    POLL_FILTER_URL,
     USER_URL,
     WARD_URL,
     POLLING_UNIT_URL,

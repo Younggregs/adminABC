@@ -57,6 +57,15 @@ const InnerNavbar = (props) => {
                                                 Members
                                             </Link>
                                         </li>
+                                        <li className="col-md-4">
+                                            <Link 
+                                                className={props.admin ? ("active") : ("")} 
+                                                to='/admin'
+                                                style={{textDecoration: 'none'}}
+                                            >
+                                                Tables
+                                            </Link>
+                                        </li>
                                         {/* <li className="col-md-4">
                                             <Link 
                                                 className={props.location ? ("active") : ("")} 

@@ -75,7 +75,11 @@ export default function User(props) {
     const [open, setOpen] = React.useState(false);
     const [email, setEmail] = useState();
     const [password, setPassword] = useState()
-    const [name, setName] = useState('')
+    const [firstname, setFirstname] = useState('')
+    const [middlename, setMiddlename] = useState('')
+    const [lastname, setLastname] = useState('')
+    const [age, setAge] = useState('')
+    const [votercard, setVotercard] = useState('')
     const [lgas, setLgas] = React.useState([])
     const [lga, setLga] = React.useState()
     const [loadward, setLoadward] = React.useState(false)
@@ -97,8 +101,11 @@ export default function User(props) {
       }
 
     const onPasswordChanged = e => setPassword(e.target.value)
-    const onNameChanged = e => setName(e.target.value)
-    const onEmailChanged = e => setEmail(e.target.value)
+    const onFirstnameChanged = e => setFirstname(e.target.value)
+    const onMiddlenameChanged = e => setMiddlename(e.target.value)
+    const onLastnameChanged = e => setLastname(e.target.value)
+    const onAgeChanged = e => setAge(e.target.value)
+    const onVotercardChanged = e => setVotercard(e.target.value)
 
     const _handleKeyDownSubmit = (e) => {
       if (e.key === 'Enter') {
@@ -177,8 +184,8 @@ export default function User(props) {
 
         setError('')
         setList([])
-        console.log('res', name, phone, password, lga, pollingUnit, gender, memberType, registrationNumber)
-        const res = await signup(name, phone, password, lga, pollingUnit, gender, memberType, registrationNumber)
+        //console.log('res', name, phone, password, lga, pollingUnit, gender, memberType, registrationNumber)
+        const res = await signup(firstname, middlename, lastname, age, votercard, phone, password, lga, ward, pollingUnit, gender, memberType, registrationNumber)
         if(res){
             if(res.error_message){
               setError(res.error_message)
@@ -198,7 +205,7 @@ export default function User(props) {
   
   }
 
-  const canSave = [name, phone, password].every(Boolean)
+  const canSave = [firstname, middlename, lastname, age, votercard, phone, password].every(Boolean)
 
   useEffect(() => {
     const fetchGuides = async () => {
@@ -213,6 +220,7 @@ export default function User(props) {
       fetchGuides()
     }
   })
+  
 
   return (
     <div style={{background: 'rgb(224, 245, 228)', minHeight: '100vh'}}>
@@ -348,13 +356,51 @@ export default function User(props) {
                     </Grid>
                 )}
 
-            <Grid className={classes.formField}>  
-                <TextField 
-                id="name" 
-                label="Full Name" 
-                onChange={onNameChanged}
-                required fullWidth/>
-            </Grid>
+                <Grid className={classes.formField}>  
+                    <TextField 
+                    id="firstname" 
+                    label="First Name" 
+                    onChange={onFirstnameChanged}
+                    required 
+                    style={{width: 300}}/>
+                </Grid>
+
+                <Grid className={classes.formField}>  
+                    <TextField 
+                    id="middlename" 
+                    label="Middle Name" 
+                    onChange={onMiddlenameChanged}
+                    required 
+                    style={{width: 300}}/>
+                </Grid>
+
+                <Grid className={classes.formField}>  
+                    <TextField 
+                    id="lastname" 
+                    label="Last Name" 
+                    onChange={onLastnameChanged}
+                    required 
+                    style={{width: 300}}/>
+                </Grid>
+
+                <Grid className={classes.formField}>  
+                    <TextField 
+                    id="age" 
+                    label="Age" 
+                    onChange={onAgeChanged}
+                    required 
+                    style={{width: 300}}/>
+                </Grid>
+
+                <Grid className={classes.formField}>  
+                    <TextField 
+                    id="votercard" 
+                    label="Voter Card Number" 
+                    onChange={onVotercardChanged}
+                    required 
+                    style={{width: 300}}/>
+                </Grid>
+
 
             <Grid className={classes.formField}>  
                 <TextField 

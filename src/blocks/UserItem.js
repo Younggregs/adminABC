@@ -14,6 +14,14 @@ import { ReactComponent as Bin } from '../assets/svg/Bin.svg';
 import TextField from '@material-ui/core/TextField'
 import editGuide from '../promises/EditGuide'
 import deleteGuide from '../promises/DeleteGuide'
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import ReactToPdf from "react-to-pdf";
+import ReactToPrint from 'react-to-print';
+import { IMG_PATH_URL } from '../constants'
+import anon from '../assets/imgs/user.png'
 
 
 function Alert(props) {
@@ -24,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  rootb: {
+    backgroundColor: '#AFDFF3'
+  },
   linksView: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -32,16 +43,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   links: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: 50,
-    width: 300,
-    borderRadius: 5,
-    border: '1px solid gray',
-    margin: 10,
-    padding: 5,
-    flexDirection: 'row',
-    display: 'flex'
+    marginBottom: 10,
   },
   linkText: {
     flex: 8,
@@ -111,6 +113,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function UserItem(props) {
   const classes = useStyles();
+  const ref = React.createRef();
 
   const [guide, setGuide] = React.useState(props.item.guide);
   const [ttc, setTtc] = React.useState(props.item.total_travel_cost);
@@ -293,12 +296,73 @@ return (
 
             ): (
 
-            <Grid className={classes.linksView}>
+          <Grid className={classes.linksView}>
             <Grid className={classes.links}>
-            <Grid container direction="column">
-                    <p className={classes.linkText}>Name: {props.item.name}</p>
-                    <p className={classes.linkText}>Reg: {props.item.registrationNumber}</p>
-                    <p className={classes.linkText}>LGA: {props.item.lga}</p>
+            <Grid>
+              <Card ref={ref} className={classes.rootb}>
+                <CardContent>
+                  <Grid container justify="center" alignItems="center" direction="column">
+                    <Typography style={{color: '#ff0000'}} variant="h5" component="h5">
+                      MEMBERSHIP SLIP
+                    </Typography>
+                    <Typography variant="h5" component="h5">
+                      ALL PROGRESSIVES CONGRESS
+                    </Typography>
+                    <Typography variant="subtitle1" component="subtitle1">
+                      JUSTICE, PEACE AND UNITY
+                    </Typography>
+                  </Grid>
+                  <Grid 
+                    container
+                    direction="row" 
+                    style={{ marginTop: 10, flexDirection: 'row'}} 
+                    spacing={2}>
+                    <Grid 
+                      container
+                      style={{width: 150, height: 150, flex: 5, borderRadius: 75
+                      }}>
+                        <img 
+                          src={props.item.image ? IMG_PATH_URL + props.item.image : anon} 
+                          width="150" 
+                          height="150" 
+                          alt="Member" 
+                          style={{resizeMode: 'cover', backgroundColor: '#228B22', borderRadius: 75}}
+                        />
+                    </Grid>
+                    <Grid container style={{ marginTop: 10, flex: 7, flexDirection: 'column'}} >
+                      <Typography variant="subtitle2" component="subtitle2">
+                        Firstname: <span style={{fontWeight: 'normal'}}>{props.item.firstname}</span>
+                      </Typography>
+                      <Typography variant="subtitle2" component="subtitle2">
+                        Middlename: <span style={{fontWeight: 'normal'}}>{props.item.middlename}</span>
+                      </Typography>
+                      <Typography variant="subtitle2" component="subtitle2">
+                        Lastname: <span style={{fontWeight: 'normal'}}>{props.item.lastname}</span>
+                      </Typography>
+                      <Typography variant="subtitle2" component="subtitle2">
+                        Reg No: <span style={{fontWeight: 'normal'}}>{props.item.registrationNumber}</span>
+                      </Typography>
+                      <Typography variant="subtitle2" component="subtitle2">
+                        Gender: <span style={{fontWeight: 'normal'}}>{props.item.gender}</span>
+                      </Typography>
+                      <Typography variant="subtitle2" component="subtitle2">
+                        LGA: <span style={{fontWeight: 'normal'}}>{props.item.lga}</span>
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </CardContent>
+                <CardActions>
+                  <ReactToPrint
+                    trigger={() => <Button>Print</Button>}
+                    content={() => ref.current}
+                  />
+                  <ReactToPdf targetRef={ref} filename="div-blue.pdf">
+                    {({toPdf}) => (
+                      <Button onClick={toPdf} size="small">Download as PDF</Button>
+                    )}
+                  </ReactToPdf>
+                </CardActions>
+              </Card>
             </Grid>
             {/*
             <Grid className={classes.iconButton}>

@@ -98,7 +98,11 @@ export default function Login() {
     const [lgas, setLgas] = React.useState([])
     const [lga, setLga] = React.useState()
     const [phoneError, setPhoneError] = React.useState([])
-    const [name, setName] = useState('')
+    const [firstname, setFirstname] = useState('')
+    const [middlename, setMiddlename] = useState('')
+    const [lastname, setLastname] = useState('')
+    const [age, setAge] = useState('')
+    const [votercard, setVotercard] = useState('')
     const [registrationNumber, setRegistrationNumber] = useState('')
 
     const onPhoneChanged = (e) => {
@@ -109,8 +113,11 @@ export default function Login() {
         setRegistrationNumber(e.target.value)
       }
     const onPasswordChanged = e => setPassword(e.target.value)
-    const onNameChanged = e => setName(e.target.value)
-    const onEmailChanged = e => setEmail(e.target.value)
+    const onFirstnameChanged = e => setFirstname(e.target.value)
+    const onMiddlenameChanged = e => setMiddlename(e.target.value)
+    const onLastnameChanged = e => setLastname(e.target.value)
+    const onAgeChanged = e => setAge(e.target.value)
+    const onVotercardChanged = e => setVotercard(e.target.value)
 
     const _handleKeyDownSubmit = (e) => {
       if (e.key === 'Enter') {
@@ -210,7 +217,7 @@ export default function Login() {
     
     }
 
-    const canSave = [name, phone, password, lga, ward, pollingUnit, gender, memberType].every(Boolean)
+    const canSave = [firstname, middlename, lastname, age, votercard, phone, password, lga, ward, pollingUnit, gender, memberType].every(Boolean)
 
     const verifyPhone = (value) => {
       
@@ -241,7 +248,7 @@ export default function Login() {
 
         setLoading(true)
         // console.log('res', name, phone, password, lga, ward, pollingUnit, gender, memberType, registrationNumber)
-        const message = await signup(name, phone, password, lga, pollingUnit, gender, memberType, registrationNumber)
+        const message = await signup(firstname, middlename, lastname, age, votercard, phone, password, lga, ward, pollingUnit, gender, memberType, registrationNumber)
         console.log('message', message)
         if(message.code){
             setFlowershower(true)
@@ -341,9 +348,45 @@ export default function Login() {
 
                 <Grid className={classes.formField}>  
                     <TextField 
-                    id="name" 
-                    label="Full Name" 
-                    onChange={onNameChanged}
+                    id="firstname" 
+                    label="First Name" 
+                    onChange={onFirstnameChanged}
+                    required 
+                    style={{width: 300}}/>
+                </Grid>
+
+                <Grid className={classes.formField}>  
+                    <TextField 
+                    id="middlename" 
+                    label="Middle Name" 
+                    onChange={onMiddlenameChanged}
+                    required 
+                    style={{width: 300}}/>
+                </Grid>
+
+                <Grid className={classes.formField}>  
+                    <TextField 
+                    id="lastname" 
+                    label="Last Name" 
+                    onChange={onLastnameChanged}
+                    required 
+                    style={{width: 300}}/>
+                </Grid>
+
+                <Grid className={classes.formField}>  
+                    <TextField 
+                    id="age" 
+                    label="Age" 
+                    onChange={onAgeChanged}
+                    required 
+                    style={{width: 300}}/>
+                </Grid>
+
+                <Grid className={classes.formField}>  
+                    <TextField 
+                    id="votercard" 
+                    label="Voter Card Number" 
+                    onChange={onVotercardChanged}
                     required 
                     style={{width: 300}}/>
                 </Grid>

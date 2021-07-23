@@ -222,196 +222,38 @@ export default function Admin(props) {
     }
 
 
+    const handleClickLga = () => {
+      window.location.assign('/lgafilter')
+    }
+
+    const handleClickWard = () => {
+      window.location.assign('/wardfilter')
+    }
+
+    const handleClickPoll = () => {
+      window.location.assign('/pollfilter')
+    }
+
+
   return (
     <div>
       <div style={{ margin: 0, marginBottom: 200}}>
         <InnerNavbar admin={true}/> 
       </div>
         <Box>
-            <h3 style={{color: 'gray', textAlign: 'center', margin: 10}}>Manage Admins</h3>
+            <h3 style={{color: 'gray', textAlign: 'center', margin: 10}}>Manage Tables</h3>
         </Box> 
 
         <Grid className="new-location" direction="column" justify="center" alignItems="center">
-        
-        <Grid style={{width: 300}} direction="column" justify="center" alignItems="center">
-          <Button1 handleClick={handleClickOpen} style={{width: 250}} title="Create New Admin"/>
-          <Dialog fullWidth={true} maxWidth={'sm'} open={open} onClose={handleClose} aria-labelledby="form-dialog-edit">
-            <DialogTitle id="form-dialog-title">Create New Admin</DialogTitle>
-            <DialogContent>
-            <DialogContentText>
-                A new admin can add users to the platform.
-            </DialogContentText>
-
-            <Grid className={classes.formField}>
-              {lgas.length <= '0' ? (
-                <p>Fetching LGAs... </p>
-              ) : (
-                <FormControl className={classes.formControl}>
-                  <InputLabel required id="from">LGA</InputLabel>
-                  <Select
-                    labelId="lga"
-                    id="lga"
-                    style={{minWidth: 300}}
-                    required
-                    value={lga}
-                    onChange={handleChangeLga}
-                  >
-                  {lgas.map(item =>
-                    <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
-                  )}
-                  </Select>
-              </FormControl>
-              )}
-            </Grid>
-
-            <Grid className={classes.formField}>
-              {loadward ? (
-                <p>Fetching wards... </p>
-              ) : (
-                <FormControl className={classes.formControl}>
-                <InputLabel required id="from">Ward</InputLabel>
-                <Select
-                  labelId="ward"
-                  id="ward"
-                  style={{minWidth: 300}}
-                  required
-                  value={ward}
-                  onChange={handleChangeWard}
-                >
-                {wards.map(item =>
-                  <MenuItem key={item.id} value={item.id} className={classes.titleCase}><span className={classes.titleCase}>{item.name}</span></MenuItem>
-                )}
-                </Select>
-            </FormControl>
-              )}
-            
-            </Grid>
-
-            <Grid className={classes.formField}>
-              {loadpolls ? (
-                  <p>Fetching Polling Units... </p>
-                ) : (
-                  <FormControl className={classes.formControl}>
-                    <InputLabel required id="from">Polling Units</InputLabel>
-                    <Select
-                      labelId="pollingUnit"
-                      id="pollingUnit"
-                      style={{minWidth: 300}}
-                      required
-                      value={pollingUnit}
-                      onChange={handleChangePollingUnit}
-                    >
-                    {pollingUnits.map(item =>
-                      <MenuItem key={item.id} value={item.id} className={classes.titleCase}><span className={classes.titleCase}>{item.name}</span></MenuItem>
-                    )}
-                    </Select>
-                </FormControl>
-                )}
-            </Grid>
-
-            <Grid className={classes.formField}>  
-                <TextField 
-                id="name" 
-                label="Full Name" 
-                onChange={onNameChanged}
-                required fullWidth/>
-            </Grid>
-
-            <Grid className={classes.formField}>  
-                <TextField 
-                  id="email" 
-                  label="Email" 
-                  helperText="Email is not required"
-                  onChange={onEmailChanged}
-                  fullWidth/>
-            </Grid>
-
-            <Grid className={classes.formField}>
-            <FormControl className={classes.formControl}>
-                <InputLabel required id="from">Gender</InputLabel>
-                <Select
-                  labelId="gender"
-                  id="gender"
-                  style={{minWidth: 300}}
-                  required
-                  value={gender}
-                  onChange={handleChangeGender}
-                >
-                  <MenuItem key='1' value='Male'>Male</MenuItem>
-                  <MenuItem key='2' value='Female'>Female</MenuItem>
-                </Select>
-            </FormControl>
-            </Grid>
-
-            <Grid className={classes.formField}>
-            <FormControl className={classes.formControl}>
-                <InputLabel required id="from">Does user have a voter card?</InputLabel>
-                <Select
-                  labelId="voterCard"
-                  id="voterCard"
-                  style={{minWidth: 300}}
-                  required
-                  value={hasVotersCard}
-                  onChange={handleChangeVotersCard}
-                >
-                  <MenuItem key='1' value={1}>Yes</MenuItem>
-                  <MenuItem key='1' value={0}>No</MenuItem>
-                </Select>
-            </FormControl>
-            </Grid>
-
-            <Grid className={classes.formField}>  
-                <TextField 
-                id="phone" 
-                label="Phone" 
-                placeholder="eg. 08109599597"
-                inputProps={{ maxLength: 11 }}
-                onChange={onPhoneChanged}
-                required fullWidth/>
-                <p style={{color: '#ff0000'}}>{phoneError && "Invalid Phone Number"}</p>
-            </Grid>
-
-            <Grid className={classes.formField}>  
-                <TextField 
-                  id="password" 
-                  label="Password" 
-                  type="password"
-                  onChange={onPasswordChanged}
-                  onKeyDown={(e) => _handleKeyDownSubmit(e)} 
-                  required fullWidth
-                  />
-            </Grid>
-
-            <p style={{color: '#ff0000'}}>{error}</p>
-
-          </DialogContent>
-        <DialogActions>
-            <Button onClick={handleClose} color="primary">
-                Cancel
-            </Button>
-            <Button onClick={() => handleSave()} disabled={!canSave} color="primary">
-                Submit
-            </Button>
-        </DialogActions>
-        </Dialog>
-        </Grid>
-        </Grid>
-
-        <Grid>
-          <Box>
-            <h4 style={{color: 'gray', textAlign: 'center', margin: 10}}>Admins ({list.length})</h4>
-          </Box> 
-
-          <Grid container direction="column" justify="center" alignItems="center">
-            <p style={{textAlign: 'center', color: '#ff0000'}}>{errorA}</p>
+          <Grid style={{width: 300, marginBottom: 10}} direction="column" justify="center" alignItems="center">
+            <Button1 handleClick={handleClickLga} style={{width: 250}} title="Filter by LGA"/>
           </Grid>
-
-          {list.map(item =>
-          <Grid container direction="column" justify="center" alignItems="center">
-            <AdminItem item={item}/>
+          <Grid style={{width: 300, marginBottom: 10}} direction="column" justify="center" alignItems="center">
+            <Button1 handleClick={handleClickWard} style={{width: 250}} title="Filter by Ward"/>
           </Grid>
-          )} 
-        
+          <Grid style={{width: 300, marginBottom: 10}} direction="column" justify="center" alignItems="center">
+            <Button1 handleClick={handleClickPoll} style={{width: 250}} title="Filter by Polling Unit"/>
+          </Grid>
         </Grid>
         
     </div>

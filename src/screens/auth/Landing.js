@@ -16,7 +16,7 @@ import '../../styles/Landing.css'
 
 export default class Landing extends Component {
     handleClick = () => {
-        window.location.assign('/login')
+        window.location.assign('/register')
     }
     render() {
         return (

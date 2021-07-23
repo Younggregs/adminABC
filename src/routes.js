@@ -70,6 +70,15 @@ const Admin = loadable(() => import('./screens/admin/Admin'), {
 const User = loadable(() => import('./screens/admin/User'), {
     fallback: Loading,
 })
+const LgaFilter = loadable(() => import('./screens/admin/LgaFilter'), {
+    fallback: Loading,
+})
+const WardFilter = loadable(() => import('./screens/admin/WardFilter'), {
+    fallback: Loading,
+})
+const PollFilter = loadable(() => import('./screens/admin/PollFilter'), {
+    fallback: Loading,
+})
 const NotFound = loadable(() => import('./screens/pages/NotFound'), {
     fallback: Loading,
 })
@@ -130,6 +139,15 @@ export default class Routes extends Component {
                     <AuthRoutes
                         path="/admin"
                         component={Admin} />
+                    <AuthRoutes
+                        path="/lgafilter"
+                        component={LgaFilter} />
+                    <AuthRoutes
+                        path="/wardfilter"
+                        component={WardFilter} />
+                    <AuthRoutes
+                        path="/pollfilter"
+                        component={PollFilter} />
                     <AuthRoutes
                         path="/user"
                         component={User} />
