@@ -19,12 +19,14 @@ const SUPER_USER_URL = `${API_ROOT_URL}/superuser/`
 const LGA_FILTER_URL = `${API_ROOT_URL}/filterbylga/`;
 const WARD_FILTER_URL = `${API_ROOT_URL}/filterbyward/`;
 const POLL_FILTER_URL = `${API_ROOT_URL}/filterbypoll/`;
-
+const TOTAL_MEMBERS_URL = `${API_ROOT_URL}/membercount/`;
 const NAME_SEARCH_URL = `${API_ROOT_URL}/searchbyname/`;
 
 const GET_NAME_URL = `${API_ROOT_URL}/guide/`;
 
 const USERDATA_URL = `${API_ROOT_URL}/userdata/`;
+
+
 /*
     Admin routes
 */
@@ -77,6 +79,7 @@ export {
     LOGIN_URL,
     SIGNUP_URL,
     UPDATE_URL,
+    TOTAL_MEMBERS_URL,
     SUPER_USER_URL,
     LOCATION_URL,
     LGA_FILTER_URL,

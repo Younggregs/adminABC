@@ -6,7 +6,7 @@ import pollingUnitList from '../../promises/PollingUnitList'
 import UserItem from '../../blocks/UserItem'
 import Button1 from '../../components/Button'
 import Button from '@material-ui/core/Button'
-import newUser from '../../promises/NewUser'
+import memberCount from '../../promises/MemberCount'
 import userList from '../../promises/UserList'
 import InnerNavbar from '../../partials/InnerNavbar'
 import Dialog from '@material-ui/core/Dialog'
@@ -73,7 +73,7 @@ export default function User(props) {
     const [list, setList] = useState([]);
     const [check, setCheck] = useState(true)
     const [open, setOpen] = React.useState(false);
-    const [email, setEmail] = useState();
+    const [count, setCount] = useState();
     const [password, setPassword] = useState()
     const [firstname, setFirstname] = useState('')
     const [middlename, setMiddlename] = useState('')
@@ -211,7 +211,9 @@ export default function User(props) {
     const fetchGuides = async () => {
 
       const lgas = await lgaList()
+      const count = await memberCount()
       setCheck(false)
+      setCount(count.code)
       setLgas(lgas)
       
     }
@@ -435,7 +437,7 @@ export default function User(props) {
 
         <Grid>
           <Box>
-            <h4 style={{textAlign: 'center', margin: 10}}>Users ({list.length})</h4>
+            <h4 style={{textAlign: 'center', margin: 10}}>Total Member Count: ({count})</h4>
           </Box> 
 
           <Grid container direction="column" justify="center" alignItems="center">
