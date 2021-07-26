@@ -22,7 +22,6 @@ import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
-import { DataGrid } from '@material-ui/data-grid';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
