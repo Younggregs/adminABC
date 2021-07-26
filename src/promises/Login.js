@@ -1,9 +1,9 @@
 import { LOGIN_URL }  from '../constants'
 
-async function login(phone, password){
+async function login(username, password){
 
     var formData = new FormData()
-    formData.append('phone', phone)
+    formData.append('username', username)
     formData.append('password', password)
 
     try {

@@ -26,7 +26,7 @@ export default class Landing extends Component {
                     <div>
                         <a href="/#"><img src={MainLogo} width="160px" height="74px" alt="Logo" /></a>
                     </div>
-                        <h1>All Progressive Congress <br /> APC</h1>
+                        <h1>All Progressives Congress <br /> APC</h1>
                         <p className="subtitle">
                             Change is inevitable. We must learn to accept, 
                             understand and leverage change for our growth! 
@@ -72,7 +72,7 @@ export default class Landing extends Component {
                                     <h4>Portal</h4>
                                     <p>
                                         You would be onboarded to your modern and minimalistic official members portal.
-                                        You can edit your profile, then you are officially a member of the All Progressive Congress.
+                                        You can edit your profile, then you are officially a member of the All Progressives Congress.
                                     </p>
                                 </div>
                             </div>

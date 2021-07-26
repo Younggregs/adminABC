@@ -11,6 +11,7 @@ async function isSuperUser(){
         })
         const message = await res.json();
         localStorage.setItem('isSuperUser', message)
+        console.log('control', message)
         return message
       } catch (e) {
         console.log(e);

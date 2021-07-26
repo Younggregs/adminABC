@@ -14,11 +14,37 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import ReactToPdf from "react-to-pdf";
 import ReactToPrint from 'react-to-print';
+import Logo from '../../assets/imgs/MainLogo2.png'
+import { QRCode } from 'react-qrcode-logo';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import isSuperUser from '../../promises/IsSuperUser'
+
+
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein };
+}
+
+const rows = [
+  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  createData('Eclair', 262, 16.0, 24, 6.0),
+  createData('Cupcake', 305, 3.7, 67, 4.3),
+  createData('Gingerbread', 356, 16.0, 49, 3.9),
+];
 
 const useStyles = makeStyles({
     root: {
       minWidth: 275,
       backgroundColor: '#AFDFF3'
+    },
+    table: {
+      minWidth: 650,
     },
     bullet: {
       display: 'inline-block',
@@ -34,11 +60,14 @@ const useStyles = makeStyles({
   });
 
 
-export default function Contact () {
+export default function Dashboard(props) {
     const classes = useStyles();
     const [user, setUser] = useState({})
     const [check, setCheck] = useState(true)
+    const [issuper, setIssuper] = useState(false)
     const ref = React.createRef();
+
+    console.log('props', props.super)
 
     useEffect( () => {
         const fetchUserData = async () => {
@@ -49,7 +78,7 @@ export default function Contact () {
         }
     
         if(check){
-        fetchUserData()
+          fetchUserData()
         }
     })
     
@@ -58,7 +87,21 @@ export default function Contact () {
             <>
             <div className="container">
                 <div className="landing-container">
-                    <MainLogo />
+                  <Grid style={{ width: '100%', padding: 10, border: '5px solid #AFDFF3', background: '#228B22', borderRadius: 10}} container direction="row" justify={ props.super ? "space-between" : "center"} alignItems="center">
+                    <Grid>
+                      <MainLogo />
+                    </Grid>
+                    {props.super && (
+                    <Grid>
+                        <p className="subtitle" style={{textAlign: 'right'}}>
+                          <Link to='/user' style={{color: '#fff'}}>
+                              <b>Continue as Admin</b>
+                          </Link>
+                      </p>
+                    </Grid>
+                    )}
+                  </Grid>
+                    
                     <Grid container justify="center" alignItems="center" direction="column">
                     <h1>Official Member Portal</h1>
                     <p className="subtitle" style={{textAlign: 'left'}}>
@@ -90,17 +133,53 @@ export default function Contact () {
                         spacing={2}>
                         <Grid 
                           container
-                          style={{width: 150, height: 150, flex: 5, borderRadius: 75
-                          }}>
-                            <img 
+                          style={{flex: 4, marginTop: 10, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                          <p>Passport</p>
+                          <img 
                               src={user.image ? IMG_PATH_URL + user.image : anon} 
-                              width="150" 
-                              height="150" 
+                              width="170" 
+                              height="170" 
                               alt="Member" 
-                              style={{resizeMode: 'cover', backgroundColor: '#228B22', borderRadius: 75}}
-                            />
+                              style={{resizeMode: 'cover', border: '1px solid #999'}}
+                          />
                         </Grid>
-                        <Grid container style={{ marginTop: 10, flex: 7, flexDirection: 'column'}} >
+                        <Grid style={{ marginTop: 10, margin: 10, flex: 6, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textTransform: 'capitalize'}} >
+                        <TableContainer component={Paper}>
+                          <Table aria-label="simple table">
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Firstname:</TableCell>
+                                <TableCell align="right">{user.firstname}</TableCell>
+                              </TableRow>
+                            </TableHead>
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Middlename:</TableCell>
+                                <TableCell align="right">{user.middlename}</TableCell>
+                              </TableRow>
+                            </TableHead>
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Lastname:</TableCell>
+                                <TableCell align="right">{user.lastname}</TableCell>
+                              </TableRow>
+                            </TableHead>
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Registration Number:</TableCell>
+                                <TableCell align="right">{user.registrationNumber}</TableCell>
+                              </TableRow>
+                            </TableHead>
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Gender:</TableCell>
+                                <TableCell align="right">{user.gender}</TableCell>
+                              </TableRow>
+                            </TableHead>
+                          </Table>
+                        </TableContainer>
+                        </Grid>
+                        {/* <Grid container style={{ marginTop: 10, flex: 7, flexDirection: 'column'}} >
                           <Typography variant="subtitle2" component="subtitle2">
                             Firstname: <span style={{fontWeight: 'normal'}}>{user.firstname}</span>
                           </Typography>
@@ -119,8 +198,13 @@ export default function Contact () {
                           <Typography variant="subtitle2" component="subtitle2">
                             LGA: <span style={{fontWeight: 'normal'}}>{user.lga}</span>
                           </Typography>
+                        </Grid> */}
+                        <Grid container style={{flex: 4, marginTop: 10, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                          <p>QR code</p>
+                          <QRCode value={user} logoImage={Logo} logoWidth={50}/>,
                         </Grid>
                       </Grid>
+                     
                     </CardContent>
                     <CardActions>
                       <ReactToPrint

@@ -10,14 +10,14 @@ import isSuperUser from '../../promises/IsSuperUser'
 export default function Login() {
     const [loading, setLoading] = useState(false)
     const [password, setPassword] = useState()
-    const [phone, setPhone] = useState('')
+    const [username, setUsername] = useState('')
     const [flowershower, setFlowershower] = useState(false)
     const [success, setSuccess] = useState(false)
     const [err, setErr] = useState(false)
     const [error, setError] = useState('')
     
 
-    const onPhoneChanged = e => setPhone(e.target.value)
+    const onUsernameChanged = e => setUsername(e.target.value)
     const onPasswordChanged = e => setPassword(e.target.value)
 
     const _handleKeyDownSubmit = (e) => {
@@ -33,14 +33,15 @@ export default function Login() {
     const submit = async () => {
 
         setLoading(true)
-        console.log('res11', phone, password)
-        const message = await login(phone, password)
+        console.log('res11', username, password)
+        const message = await login(username, password)
+        console.log('res 13', message)
         if(message.code){
             setFlowershower(true)
-            const res = await signin(phone, password)
+            const res = await signin(message.code, password)
             if(res){
                 //set super use status
-                const superUser = await isSuperUser()
+                await isSuperUser()
                 setSuccess(true)
             } 
         }else if(message.error_message){
@@ -58,7 +59,7 @@ export default function Login() {
     return (
         <div className="auth-background">
             <div className="auth-container">
-                <h1 style={{ color: '#228B22', fontWeight: 'bold'}}>All Progressive Congress</h1>
+                <h1 style={{ color: '#228B22', fontWeight: 'bold'}}>All Progressives Congress</h1>
                 <br /><br />
                 <div>
                     <a href="/#"><img src={MainLogo} width="160px" height="74px" alt="Logo" /></a>
@@ -66,13 +67,14 @@ export default function Login() {
                 <p>Proceed with login</p>
                 <form onSubmit={handleSubmit}>
                     <div className="position-relative">
-                        <span>Phone</span>
+                        <span>Username</span>
                         <input 
                             autoFocus 
                             type="text" 
-                            name="phone" 
-                            id="phone"
-                            onChange={onPhoneChanged}
+                            name="username" 
+                            id="username"
+                            placeholder="Registration Number or Phone Number" 
+                            onChange={onUsernameChanged}
                         />
                     </div>
                     <div className="position-relative">
@@ -101,7 +103,7 @@ export default function Login() {
 
             <div>
                 {success ? (
-                    <Redirect to={'/dashboard'} />
+                    <Redirect to={'/'} />
                 ) : (
                 <div />
                 )}

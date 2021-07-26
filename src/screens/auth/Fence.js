@@ -3,23 +3,33 @@ import { Redirect } from 'react-router-dom'
 import Dashboard from '../admin/Dashboard'
 import Landing from '../auth/Landing'
 import CircularProgress from '@material-ui/core/CircularProgress';
+import isSuperUser from '../../promises/IsSuperUser'
 
 function Fence(){
 
   const [status, setStatus] = useState(true)
   const [stop, setStop] = useState(true)
+  const [issuper, setIssuper] = useState(false)
 
-  const evaluate = async () => {
-    const auth = await localStorage.getItem('auth')
+  useEffect( () => {
+    const evaluate = async () => {
+      const auth = await localStorage.getItem('auth')
+      const superUser = await isSuperUser()
+      console.log('super 19', superUser)
+      setIssuper(superUser)
+  
+      console.log('super 19', superUser)
+  
+      if(auth === null || auth === '' || auth === false){setStatus(false)}
+  
+      setStop(false)
+    }
+  
+    if(stop){
+      evaluate()
+    } 
+  })
 
-    if(auth === null || auth === '' || auth === false){setStatus(false)}
-
-    setStop(false)
-  }
-
-  if(stop){
-    evaluate()
-  } 
   
 
 
@@ -31,7 +41,7 @@ function Fence(){
         <div>
            {status ? (
              <div>
-               <Dashboard />
+               <Dashboard super={issuper}/>
              </div>
             ) : (
               <Landing />

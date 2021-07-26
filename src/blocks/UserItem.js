@@ -22,7 +22,15 @@ import ReactToPdf from "react-to-pdf";
 import ReactToPrint from 'react-to-print';
 import { IMG_PATH_URL } from '../constants'
 import anon from '../assets/imgs/user.png'
-
+import MainLogo from '../assets/imgs/MainLogo2.png'
+import { QRCode } from 'react-qrcode-logo';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -108,6 +116,9 @@ const useStyles = makeStyles((theme) => ({
   linkStyle: {
       padding: 5,
       fontSize: 12,
+  },
+  titleCase: {
+    textTransform: 'capitalize'
   }
 }));
 
@@ -319,35 +330,55 @@ return (
                     spacing={2}>
                     <Grid 
                       container
-                      style={{width: 150, height: 150, flex: 5, borderRadius: 75
-                      }}>
+                      style={{flex: 4, marginTop: 10, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                        <p>Passport</p>
                         <img 
                           src={props.item.image ? IMG_PATH_URL + props.item.image : anon} 
-                          width="150" 
-                          height="150" 
+                          width="170" 
+                          height="170" 
                           alt="Member" 
-                          style={{resizeMode: 'cover', backgroundColor: '#228B22', borderRadius: 75}}
+                          style={{resizeMode: 'cover', border: '1px solid #999'}}
                         />
                     </Grid>
-                    <Grid container style={{ marginTop: 10, flex: 7, flexDirection: 'column'}} >
-                      <Typography variant="subtitle2" component="subtitle2">
-                        Firstname: <span style={{fontWeight: 'normal'}}>{props.item.firstname}</span>
-                      </Typography>
-                      <Typography variant="subtitle2" component="subtitle2">
-                        Middlename: <span style={{fontWeight: 'normal'}}>{props.item.middlename}</span>
-                      </Typography>
-                      <Typography variant="subtitle2" component="subtitle2">
-                        Lastname: <span style={{fontWeight: 'normal'}}>{props.item.lastname}</span>
-                      </Typography>
-                      <Typography variant="subtitle2" component="subtitle2">
-                        Reg No: <span style={{fontWeight: 'normal'}}>{props.item.registrationNumber}</span>
-                      </Typography>
-                      <Typography variant="subtitle2" component="subtitle2">
-                        Gender: <span style={{fontWeight: 'normal'}}>{props.item.gender}</span>
-                      </Typography>
-                      <Typography variant="subtitle2" component="subtitle2">
-                        LGA: <span style={{fontWeight: 'normal'}}>{props.item.lga}</span>
-                      </Typography>
+                    <Grid style={{ marginTop: 10, margin: 10, flex: 6, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textTransform: 'capitalize'}} >
+                        <TableContainer component={Paper}>
+                          <Table aria-label="simple table">
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Firstname:</TableCell>
+                                <TableCell align="right">{props.item.firstname}</TableCell>
+                              </TableRow>
+                            </TableHead>
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Middlename:</TableCell>
+                                <TableCell align="right">{props.item.middlename}</TableCell>
+                              </TableRow>
+                            </TableHead>
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Lastname:</TableCell>
+                                <TableCell align="right">{props.item.lastname}</TableCell>
+                              </TableRow>
+                            </TableHead>
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Registration Number:</TableCell>
+                                <TableCell align="right">{props.item.registrationNumber}</TableCell>
+                              </TableRow>
+                            </TableHead>
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Gender:</TableCell>
+                                <TableCell align="right">{props.item.gender}</TableCell>
+                              </TableRow>
+                            </TableHead>
+                          </Table>
+                        </TableContainer>
+                    </Grid>
+                    <Grid container style={{flex: 4, marginTop: 10, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                      <p>QR code</p>
+                      <QRCode value={props.item} logoImage={MainLogo} logoWidth={50}/>,
                     </Grid>
                   </Grid>
                 </CardContent>

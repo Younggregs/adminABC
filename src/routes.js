@@ -49,9 +49,9 @@ const Register = loadable(() => import('./screens/auth/Register'), {
 const Login = loadable(() => import('./screens/auth/Login'), {
     fallback: Loading,
 })
-const Signin = loadable(() => import('./screens/auth/Signin'), {
-    fallback: Loading,
-})
+// const Signin = loadable(() => import('./screens/auth/Signin'), {
+//     fallback: Loading,
+// })
 const UpdateProfile = loadable(() => import('./screens/admin/UpdateProfile'), {
     fallback: Loading,
 })
@@ -77,6 +77,18 @@ const WardFilter = loadable(() => import('./screens/admin/WardFilter'), {
     fallback: Loading,
 })
 const PollFilter = loadable(() => import('./screens/admin/PollFilter'), {
+    fallback: Loading,
+})
+const Print = loadable(() => import('./screens/admin/Print'), {
+    fallback: Loading,
+})
+const PrintLga = loadable(() => import('./screens/admin/PrintLga'), {
+    fallback: Loading,
+})
+const PrintWard = loadable(() => import('./screens/admin/PrintWard'), {
+    fallback: Loading,
+})
+const PrintPoll = loadable(() => import('./screens/admin/PrintPoll'), {
     fallback: Loading,
 })
 const NotFound = loadable(() => import('./screens/pages/NotFound'), {
@@ -109,14 +121,30 @@ export default class Routes extends Component {
                         exact 
                         path="/landing" 
                         component={Landing}/>
-                    <Route 
+                    {/* <Route 
                         exact 
                         path="/signin" 
-                        component={Signin}/>
+                        component={Signin}/> */}
                     <Route 
                         exact 
                         path="/register" 
                         component={Register}/>
+                    <Route 
+                        exact 
+                        path="/print" 
+                        component={Print}/>
+                    <Route 
+                        exact 
+                        path="/printlga" 
+                        component={PrintLga}/>
+                    <Route 
+                        exact 
+                        path="/printward" 
+                        component={PrintWard}/>
+                    <Route 
+                        exact 
+                        path="/printpoll" 
+                        component={PrintPoll}/>
                     <Route 
                         exact 
                         path="/login" 

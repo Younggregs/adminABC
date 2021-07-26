@@ -57,7 +57,7 @@ export default function Contact(){
 
                     <div>
                         {success ? (
-                            <Redirect to={'/dashboard'} />
+                            <Redirect to={'/'} />
                         ) : (
                         <div />
                         )}

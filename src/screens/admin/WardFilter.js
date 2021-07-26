@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, forwardRef } from 'react'
 import '../../styles/Landing.css'
 import { Link } from 'react-router-dom'
 import MainLogo from '../../components/MainLogo'
@@ -13,7 +13,6 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import ReactToPdf from "react-to-pdf";
 import ReactToPrint from 'react-to-print';
 import lgaList from '../../promises/LgaList'
@@ -21,34 +20,60 @@ import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
-import { DataGrid } from '@material-ui/data-grid';
+import MaterialTable from "material-table";
+
+import AddBox from '@material-ui/icons/AddBox';
+import ArrowDownward from '@material-ui/icons/ArrowDownward';
+import Check from '@material-ui/icons/Check';
+import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import ChevronRight from '@material-ui/icons/ChevronRight';
+import Clear from '@material-ui/icons/Clear';
+import DeleteOutline from '@material-ui/icons/DeleteOutline';
+import Edit from '@material-ui/icons/Edit';
+import FilterList from '@material-ui/icons/FilterList';
+import FirstPage from '@material-ui/icons/FirstPage';
+import LastPage from '@material-ui/icons/LastPage';
+import Remove from '@material-ui/icons/Remove';
+import SaveAlt from '@material-ui/icons/SaveAlt';
+import Search from '@material-ui/icons/Search';
+import ViewColumn from '@material-ui/icons/ViewColumn';
+
+const tableIcons = {
+    Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
+    Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
+    Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+    Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
+    DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+    Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
+    Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
+    Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
+    FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
+    LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
+    NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+    PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
+    ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+    Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+    SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
+    ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
+    ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
+  };
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'firstname', headerName: 'First name', width: 130 },
-  { field: 'middlename', headerName: 'Middle name', width: 130 },
-  { field: 'lastname', headerName: 'Last name', width: 130 },
-  { field: 'registrationNumber', headerName: 'Reg No', width: 130 },
-  { field: 'lga', headerName: 'lga', width: 130 },
-  { field: 'ward', headerName: 'ward', width: 130 },
-  {
-    field: 'pollingUnit',
-    headerName: 'Polling Unit',
-    width: 90,
-  }
-];
+    { title: "S/N", field: "id", type: "numeric" },
+    { title: "Firstname", field: "firstname" },
+    { title: "Middlename", field: "middlename" },
+    { title: "Lastname", field: "lastname" },
+    { title: "Reg No", field: "registrationNumber" },
+    { title: "LGA", field: "lga" },
+    { title: "Ward", field: "ward" },
+    { title: "PU", field: "pollingUnit" },
+  ]
 
-const rows = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-];
+
+
+const options = {
+    exportButton: true
+};
 
 const useStyles = makeStyles({
     root: {
@@ -131,7 +156,7 @@ export default function WardFilter () {
 
         setLoading(true)
             const wardfilter = await filterByWard(ward)
-            console.log('lgas', wardfilter)
+            console.log('wards', wardfilter)
             setWardfilter(wardfilter)
         setLoading(false)
   
@@ -216,8 +241,14 @@ export default function WardFilter () {
 
                 
 
-                <div ref={ref} style={{ height: 400, width: '100%' }}>
-                    <DataGrid rows={wardfilter} columns={columns} pageSize={50}/>
+                <div style={{textTransform: 'capitalize'}}>
+                    <MaterialTable
+                        columns={columns}
+                        icons={tableIcons}
+                        data={wardfilter}
+                        options={options}
+                        title="Ward List"
+                    />
                 </div>
                 
 

@@ -48,7 +48,7 @@ const InnerNavbar = (props) => {
                                             </Link>
                                         </li>
                                         )} */}
-                                        <li className="col-md-4">
+                                        <li className="col-md-3">
                                             <Link 
                                                 className={props.user ? ("active") : ("")} 
                                                 to='/user'
@@ -57,24 +57,33 @@ const InnerNavbar = (props) => {
                                                 Members
                                             </Link>
                                         </li>
-                                        <li className="col-md-4">
-                                            <Link 
-                                                className={props.admin ? ("active") : ("")} 
-                                                to='/admin'
-                                                style={{textDecoration: 'none'}}
-                                            >
-                                                Tables
-                                            </Link>
-                                        </li>
-                                        {/* <li className="col-md-4">
+                                        <li className="col-md-3">
                                             <Link 
                                                 className={props.location ? ("active") : ("")} 
                                                 to='/location'
                                                 style={{textDecoration: 'none'}}
                                             >
-                                                Location
+                                                Search
                                             </Link>
-                                        </li> */}
+                                        </li>
+                                        <li className="col-md-3">
+                                            <Link 
+                                                className={props.print ? ("active") : ("")} 
+                                                to='/print'
+                                                style={{textDecoration: 'none'}}
+                                            >
+                                                Print
+                                            </Link>
+                                        </li>
+                                        <li className="col-md-3">
+                                            <Link 
+                                                className={props.admin ? ("active") : ("")} 
+                                                to='/admin'
+                                                style={{textDecoration: 'none'}}
+                                            >
+                                                Report
+                                            </Link>
+                                        </li>
                                     </ul>
                                 </div>
                                 <ul>

@@ -49,7 +49,7 @@ export default function Signin() {
     return (
         <div className="auth-background">
             <div className="auth-container">
-                <h1 style={{ color: '#228B22', fontWeight: 'bold'}}>All Progressive Congress</h1>
+                <h1 style={{ color: '#228B22', fontWeight: 'bold'}}>All Progressives Congress</h1>
                 <br /><br />
                 <div>
                     <a href="/#"><img src={MainLogo} width="160px" height="74px" alt="Logo" /></a>

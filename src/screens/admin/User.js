@@ -239,7 +239,7 @@ export default function User(props) {
             <DialogTitle id="form-dialog-title">Add new member</DialogTitle>
             <DialogContent className={classes.root}>
             <DialogContentText>
-              All Progressive Congress Portal
+              All Progressives Congress Portal
             </DialogContentText>
 
             <Grid className={classes.formField}>

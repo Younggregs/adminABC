@@ -252,9 +252,9 @@ export default function Login() {
         console.log('message', message)
         if(message.code){
             setFlowershower(true)
-            const res = await signin(phone, password)
+            const res = await signin(message.code, password)
             if(res){
-               
+                await isSuperUser()
                 setSuccess(true)
             } 
         }else if(message.error_message){
@@ -272,7 +272,7 @@ export default function Login() {
     return (
         <div className="auth-background">
             <div className="auth-container">
-                <h1 style={{ color: '#228B22', fontWeight: 'bold'}}>All Progressive Congress</h1>
+                <h1 style={{ color: '#228B22', fontWeight: 'bold'}}>All Progressives Congress</h1>
                 <br /><br />
                 <div>
                     <a href="/#"><img src={MainLogo} width="160px" height="74px" alt="Logo" /></a>
@@ -464,7 +464,7 @@ export default function Login() {
                 
                     
                 {success ? (
-                    <Redirect to={'/dashboard'} />
+                    <Redirect to={'/'} />
                 ) : (
                 <div />
                 )}
