@@ -49,9 +49,9 @@ const Register = loadable(() => import('./screens/auth/Register'), {
 const Login = loadable(() => import('./screens/auth/Login'), {
     fallback: Loading,
 })
-// const Signin = loadable(() => import('./screens/auth/Signin'), {
-//     fallback: Loading,
-// })
+const Signin = loadable(() => import('./screens/auth/Signin'), {
+    fallback: Loading,
+})
 const UpdateProfile = loadable(() => import('./screens/admin/UpdateProfile'), {
     fallback: Loading,
 })
@@ -121,10 +121,10 @@ export default class Routes extends Component {
                         exact 
                         path="/landing" 
                         component={Landing}/>
-                    {/* <Route 
+                    <Route 
                         exact 
                         path="/signin" 
-                        component={Signin}/> */}
+                        component={Signin}/>
                     <Route 
                         exact 
                         path="/register" 
