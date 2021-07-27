@@ -64,6 +64,7 @@ export default function Dashboard(props) {
     const classes = useStyles();
     const [user, setUser] = useState({})
     const [check, setCheck] = useState(true)
+    const [qrdata, setQrdata] = useState("")
     const [issuper, setIssuper] = useState(false)
     const ref = React.createRef();
 
@@ -73,6 +74,16 @@ export default function Dashboard(props) {
         const fetchUserData = async () => {
             const res = await userData()
             console.log('res', res)
+            let i = 'Name: ' + res.lastname.charAt(0).toUpperCase() + res.lastname.slice(1) + ' ' 
+                + res.middlename.charAt(0).toUpperCase() + res.middlename.slice(1) + ' ' 
+                + res.firstname.charAt(0).toUpperCase() + res.firstname.slice(1) + '\n'
+            i = i + 'Reg No: ' + res.registrationNumber + '\n'
+            i = i + 'Gender: ' + res.gender + '\n'
+            i = i + 'Age: ' + res.age + '\n'
+            i = i + 'LGA: ' + res.lga + '\n'
+            i = i + 'Ward: ' + res.ward.charAt(0).toUpperCase() + res.ward.slice(1) + '\n'
+            i = i + 'Polling Unit: ' + res.pollingUnit.charAt(0).toUpperCase() + res.pollingUnit.slice(1) + '\n'
+            setQrdata(i)
             setCheck(false)
             setUser(res)
         }
@@ -201,7 +212,7 @@ export default function Dashboard(props) {
                         </Grid> */}
                         <Grid container style={{flex: 4, marginTop: 10, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
                           <p>QR code</p>
-                          <QRCode value={user} logoImage={Logo} logoWidth={50}/>,
+                          <QRCode value={qrdata} logoImage={Logo} logoWidth={50}/>,
                         </Grid>
                       </Grid>
                      

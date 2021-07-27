@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import MuiAlert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
@@ -136,7 +136,8 @@ export default function UserItem(props) {
   const [deleted, setDeleted] = React.useState(false);
   const [edited, setEdited] = React.useState(false);
   const [brick, setBrick] = React.useState({});
-
+  const [check, setCheck] = React.useState(true)
+  const [qrdata, setQrdata] = React.useState("")
 
   const handleCloseAlert = (event, reason) => {
     if (reason === 'clickaway') {
@@ -222,6 +223,28 @@ const handleDelete = async (id) => {
   }
 
 }
+
+
+useEffect( () => {
+  const fetchUserData = async () => {
+      console.log('res', props.item)
+      let i = 'Name: ' + props.item.lastname.charAt(0).toUpperCase() + props.item.lastname.slice(1) + ' ' 
+            + props.item.middlename.charAt(0).toUpperCase() + props.item.middlename.slice(1) + ' ' 
+            + props.item.firstname.charAt(0).toUpperCase() + props.item.firstname.slice(1) + '\n'
+      i = i + 'Reg No: ' + props.item.registrationNumber + '\n'
+      i = i + 'Gender: ' + props.item.gender + '\n'
+      i = i + 'Age: ' + props.item.age + '\n'
+      i = i + 'LGA: ' + props.item.lga + '\n'
+      i = i + 'Ward: ' + props.item.ward.charAt(0).toUpperCase() + props.item.ward.slice(1) + '\n'
+      i = i + 'Polling Unit: ' + props.item.pollingUnit.charAt(0).toUpperCase() + props.item.pollingUnit.slice(1) + '\n'
+      setQrdata(i)
+      setCheck(false)
+  }
+
+  if(check){
+    fetchUserData()
+  }
+})
 
 
 
@@ -378,7 +401,7 @@ return (
                     </Grid>
                     <Grid container style={{flex: 4, marginTop: 10, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
                       <p>QR code</p>
-                      <QRCode value={props.item} logoImage={MainLogo} logoWidth={50}/>,
+                      <QRCode value={qrdata} logoImage={MainLogo} logoWidth={50}/>,
                     </Grid>
                   </Grid>
                 </CardContent>
