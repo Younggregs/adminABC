@@ -3,12 +3,12 @@ import '../styles/Navbar.css'
 import { Link } from 'react-router-dom'
 import Logo from '../assets/imgs/MainLogo2.png'
 
-const MainLogo = () => {
+const MainLogo = (props) => {
     return (
         <div className="nav-header">
-            <Link to="/">
+            <Link to={ props.admin ? '/user': "/"}>
                 <div>
-                    <a href="/#"><img src={Logo} width="160px" height="74px" alt="Logo" /></a>
+                    <img src={Logo} width="160px" height="74px" alt="Logo" />
                 </div>
             </Link>
         </div>

@@ -146,7 +146,7 @@ export default function LgaFilter () {
             <>
             <div className="container">
                 <div className="landing-container">
-                    <MainLogo />
+                    <MainLogo admin={true}/>
                     <Grid container justify="center" alignItems="center" direction="column">
                         <h1>LGA Table Filter</h1>
                     </Grid>
@@ -196,6 +196,13 @@ export default function LgaFilter () {
                         data={lgafilter}
                         options={options}
                         title="LGA List"
+                        isLoading={loading}
+                        options={{
+                            paging:true,
+                            pageSize:5,       // make initial page size
+                            emptyRowsWhenPaging: true,   //to make page size fix in case of less data rows
+                            pageSizeOptions:[50,100,500,1000],    // rows selection options
+                          }}
                     />
                 </div>
 

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import '../styles/Navbar.css'
 import { Link } from 'react-router-dom'
-import MainLogo from '../components/MainLogo'
+import Logo from '../assets/imgs/MainLogo2.png'
 // import CopyLink from '../components/CopyLink'
 
 const InnerNavbar = (props) => {
@@ -26,7 +26,13 @@ const InnerNavbar = (props) => {
                 <div className="nav">
                 <input type="checkbox" id="nav-check" />
                     <div className="logo-btn">
-                        <MainLogo />
+                        <div className="nav-header">
+                            <Link to="/user">
+                                <div>
+                                    <a href="/#"><img src={Logo} width="160px" height="74px" alt="Logo" /></a>
+                                </div>
+                            </Link>
+                        </div>
                         <div className="mobile-navbar">
                             <Link to='/logout'>
                                 <b>Log out</b>

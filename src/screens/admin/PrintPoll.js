@@ -154,9 +154,9 @@ export default function PrintPoll () {
             <>
             <div className="container">
                 <div className="landing-container">
-                    <MainLogo />
+                    <MainLogo admin={true}/>
                     <Grid container justify="center" alignItems="center" direction="column">
-                        <h1>Polling Units Table Filter</h1>
+                        <h1>Polling Units Print Slips</h1>
                     </Grid>
                 </div>
 

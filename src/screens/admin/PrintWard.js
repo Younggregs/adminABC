@@ -142,9 +142,9 @@ export default function PrintWard () {
             <>
             <div className="container">
                 <div className="landing-container">
-                    <MainLogo />
+                    <MainLogo admin={true}/>
                     <Grid container justify="center" alignItems="center" direction="column">
-                        <h1>Ward Table Filter</h1>
+                        <h1>Ward Print Slips</h1>
                     </Grid>
                 </div>
 

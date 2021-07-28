@@ -78,6 +78,7 @@ export default function Dashboard(props) {
                 + res.middlename.charAt(0).toUpperCase() + res.middlename.slice(1) + ' ' 
                 + res.firstname.charAt(0).toUpperCase() + res.firstname.slice(1) + '\n'
             i = i + 'Reg No: ' + res.registrationNumber + '\n'
+            // i = i + 'Internal ID: ' + res.internalId + '\n'
             i = i + 'Gender: ' + res.gender + '\n'
             i = i + 'Age: ' + res.age + '\n'
             i = i + 'LGA: ' + res.lga + '\n'
