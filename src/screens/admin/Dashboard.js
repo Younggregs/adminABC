@@ -23,6 +23,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import parseId from '../../components/parseId'
 import isSuperUser from '../../promises/IsSuperUser'
 
 
@@ -77,7 +78,7 @@ export default function Dashboard(props) {
             let i = 'Name: ' + res.lastname.charAt(0).toUpperCase() + res.lastname.slice(1) + ' ' 
                 + res.middlename.charAt(0).toUpperCase() + res.middlename.slice(1) + ' ' 
                 + res.firstname.charAt(0).toUpperCase() + res.firstname.slice(1) + '\n'
-            i = i + 'Reg No: ' + res.internalId + '\n'
+            i = i + 'Reg No: ' + parseId(res.internalId) + '\n'
             i = i + 'Gender: ' + res.gender + '\n'
             i = i + 'Age: ' + res.age + '\n'
             i = i + 'LGA: ' + res.lga + '\n'
@@ -178,7 +179,7 @@ export default function Dashboard(props) {
                             <TableHead>
                               <TableRow>
                                 <TableCell>Registration Number:</TableCell>
-                                <TableCell align="right">{user.internalId}</TableCell>
+                                <TableCell align="right">{parseId(user.internalId)}</TableCell>
                               </TableRow>
                             </TableHead>
                             <TableHead>

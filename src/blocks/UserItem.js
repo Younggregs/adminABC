@@ -14,6 +14,7 @@ import { ReactComponent as Bin } from '../assets/svg/Bin.svg';
 import TextField from '@material-ui/core/TextField'
 import editGuide from '../promises/EditGuide'
 import deleteGuide from '../promises/DeleteGuide'
+import parseId from '../components/parseId'
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -231,7 +232,7 @@ useEffect( () => {
       let i = 'Name: ' + props.item.lastname.charAt(0).toUpperCase() + props.item.lastname.slice(1) + ' ' 
             + props.item.middlename.charAt(0).toUpperCase() + props.item.middlename.slice(1) + ' ' 
             + props.item.firstname.charAt(0).toUpperCase() + props.item.firstname.slice(1) + '\n'
-      i = i + 'Reg No: ' + props.item.internalId + '\n'
+      i = i + 'Reg No: ' + parseId(props.item.internalId) + '\n'
       i = i + 'Gender: ' + props.item.gender + '\n'
       i = i + 'Age: ' + props.item.age + '\n'
       i = i + 'LGA: ' + props.item.lga + '\n'
@@ -387,7 +388,7 @@ return (
                             <TableHead>
                               <TableRow>
                                 <TableCell>Registration Number:</TableCell>
-                                <TableCell align="right">{props.item.internalId}</TableCell>
+                                <TableCell align="right">{parseId(props.item.internalId)}</TableCell>
                               </TableRow>
                             </TableHead>
                             <TableHead>
