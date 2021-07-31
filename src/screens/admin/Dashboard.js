@@ -77,8 +77,7 @@ export default function Dashboard(props) {
             let i = 'Name: ' + res.lastname.charAt(0).toUpperCase() + res.lastname.slice(1) + ' ' 
                 + res.middlename.charAt(0).toUpperCase() + res.middlename.slice(1) + ' ' 
                 + res.firstname.charAt(0).toUpperCase() + res.firstname.slice(1) + '\n'
-            i = i + 'Reg No: ' + res.registrationNumber + '\n'
-            // i = i + 'Internal ID: ' + res.internalId + '\n'
+            i = i + 'Reg No: ' + res.internalId + '\n'
             i = i + 'Gender: ' + res.gender + '\n'
             i = i + 'Age: ' + res.age + '\n'
             i = i + 'LGA: ' + res.lga + '\n'
@@ -179,7 +178,7 @@ export default function Dashboard(props) {
                             <TableHead>
                               <TableRow>
                                 <TableCell>Registration Number:</TableCell>
-                                <TableCell align="right">{user.registrationNumber}</TableCell>
+                                <TableCell align="right">{user.internalId}</TableCell>
                               </TableRow>
                             </TableHead>
                             <TableHead>

@@ -231,8 +231,7 @@ useEffect( () => {
       let i = 'Name: ' + props.item.lastname.charAt(0).toUpperCase() + props.item.lastname.slice(1) + ' ' 
             + props.item.middlename.charAt(0).toUpperCase() + props.item.middlename.slice(1) + ' ' 
             + props.item.firstname.charAt(0).toUpperCase() + props.item.firstname.slice(1) + '\n'
-      i = i + 'Reg No: ' + props.item.registrationNumber + '\n'
-      i = i + 'Internal ID: ' + props.item.internalId + '\n'
+      i = i + 'Reg No: ' + props.item.internalId + '\n'
       i = i + 'Gender: ' + props.item.gender + '\n'
       i = i + 'Age: ' + props.item.age + '\n'
       i = i + 'LGA: ' + props.item.lga + '\n'
@@ -388,7 +387,7 @@ return (
                             <TableHead>
                               <TableRow>
                                 <TableCell>Registration Number:</TableCell>
-                                <TableCell align="right">{props.item.registrationNumber}</TableCell>
+                                <TableCell align="right">{props.item.internalId}</TableCell>
                               </TableRow>
                             </TableHead>
                             <TableHead>

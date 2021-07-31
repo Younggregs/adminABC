@@ -201,7 +201,7 @@ export default function LgaFilter () {
                             paging:true,
                             pageSize:5,       // make initial page size
                             emptyRowsWhenPaging: true,   //to make page size fix in case of less data rows
-                            pageSizeOptions:[50,100,500,1000],    // rows selection options
+                            pageSizeOptions:[50,100,500,1000, 5000, 10000],    // rows selection options
                           }}
                     />
                 </div>
