@@ -73,7 +73,7 @@ export default function User(props) {
     const [list, setList] = useState([]);
     const [check, setCheck] = useState(true)
     const [open, setOpen] = React.useState(false);
-    const [count, setCount] = useState();
+    const [count, setCount] = useState(0);
     const [password, setPassword] = useState()
     const [firstname, setFirstname] = useState('')
     const [middlename, setMiddlename] = useState('')
@@ -437,7 +437,7 @@ export default function User(props) {
 
         <Grid>
           <Box>
-            <h4 style={{textAlign: 'center', margin: 10}}>Total Member Count: ({count})</h4>
+            <h4 style={{textAlign: 'center', margin: 10}}>Total Member Count: [ {Number(count).toLocaleString()} ]</h4>
           </Box> 
 
           <Grid container direction="column" justify="center" alignItems="center">
