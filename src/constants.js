@@ -9,7 +9,7 @@ export const URL = process.env.API_URL;
 //  'https://engine.myonepage.com/pi';
 
 const API_ROOT_URL =
-	'http://159.65.201.173/pi';
+	'https://engine.plateauapc.com/pi';
 const AUTH_URL = `${API_ROOT_URL}/auth/`;
 const LOGIN_URL = `${API_ROOT_URL}/signin/`;
 const SIGNUP_URL = `${API_ROOT_URL}/signup/`;
@@ -67,8 +67,8 @@ const DELETE_IMAGE_URL = `${API_ROOT_URL}/delete_image/`;
 const MISS_URL = `${API_ROOT_URL}/record_miss/`;
 const DELETE_MISS_URL = `${API_ROOT_URL}/delete_miss/`;
 
-const IMG_PATH_URL = 'http://159.65.201.173/media/';
-const ROOT_PATH_URL = 'http://apc-portal.herokuapp.com/';
+const IMG_PATH_URL = 'https://engine.plateauapc.com/media/';
+const ROOT_PATH_URL = 'https://plateauapc.com/';
 
 /*
     Other routes
